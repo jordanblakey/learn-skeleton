@@ -1,9 +1,148 @@
+// VARIABLES
+$themeColor: #0088ff;
+@mixin desaturateBackground($color){
+    background-color: desaturate(lighten($themeColor, 10%), 100%);
+}
+@mixin desaturateBorder($color){
+    border-color: desaturate(lighten($themeColor, 10%), 100%);
+}
+
+@import 'responsive-nav';
 @import 'normalize';
 @import 'skeleton';
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Source Sans Pro', sans-serif;
+h1, h2, h3, h4, h5, h6, p, li, table, body {
+    font-family: 'Source Sans Pro', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-p, li, table {
-    font-family: 'Source Serif Pro', serif;
+
+h1, h2 {
+    font-weight: 900;
+}
+
+h4{
+    font-weight: 300;
+    margin: auto auto 5%;
+}
+
+#job-title {
+    font-weight: 300;
+    display: inline-block;
+}
+
+// RESPONSIVE NAVIGATION
+.nav-collapse li {
+    width: 25%;
+    font-size: 20px;
+    margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 40em) {
+  .nav-collapse li {
+    width: 100%;
+    float: none;
+  }
+}
+
+.nav-collapse a {
+    background: $themeColor;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 900;
+}
+
+.nav-collapse a:hover {
+    background: white;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 900;
+    transition: background-color .1s;
+}
+
+a:hover {
+    color: $themeColor;
+    transition: color .1s;
+}
+
+    // HAMBURGER MENU
+
+    .nav-toggle:before {
+        color: $themeColor;
+        font-size: 4.5rem;
+        line-height: 70px;
+    }
+
+    .nav-toggle.active::before {
+        font-size: 30px;
+        line-height: 65px;
+        content: "X";
+        font-weight: 900;
+    }
+
+    // SCROLL TO TOP BUTTON
+
+    .fixedContainer{
+        position:fixed; bottom:0; background:none; left:0; right:0; margin:0 auto; z-index:1
+    }
+
+//  STACKSHARE
+    .embed-container{margin-bottom: 30px;}
+    iframe{margin-bottom: -30px;}
+
+    #scrollTop{
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        float: right;
+        bottom: 40px;
+        left: 0px;
+        border: 1px $themeColor solid;
+        border-radius: 3px;
+        background: $themeColor;
+        color:white;
+        font-size: 37px;
+        text-decoration: none;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    #scrollTop:hover{
+        color: white;
+        @include desaturateBackground($themeColor);
+        @include desaturateBorder($themeColor);
+        transition: .1s;
+    }
+
+    @media screen and (max-width: 40em) {
+      #scrollTop {
+          display: none;
+      }
+    }
+
+
+// BUTTON TEXT SIZE
+.button.button-primary, button.button-primary, input[type="submit"].button-primary, input[type="reset"].button-primary, input[type="button"].button-primary {
+    font-size: 1.6rem;
+}
+
+// STYLING DRIBBLE SCRAPE
+
+ul.shots {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li.shots--shot {
+    list-style: none;
+    width:calc(100%/3);
+    min-width:200px;
+    max-width: 500px;
+    display: inline-block;
+    flex-grow: 1;
+    margin:0;
+
+    a, img {
+        width: 100%;
+        display: block;
+    }
 }
