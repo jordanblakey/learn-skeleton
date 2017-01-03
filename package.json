@@ -1,0 +1,26 @@
+{
+  "name": "learn-skeleton",
+  "version": "1.0.0",
+  "description": "Personal portfolio of Developer & Designer Jordan Blakey",
+  "main": "app.js",
+  "dependencies": {
+    "bower": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordanblakey/learn-skeleton/"
+  },
+  "keywords": [
+    "Designer",
+    "Developer",
+    "Portfolio",
+    "Jordan",
+    "Blakey"
+  ],
+  "author": "Jordan Blakey",
+  "license": "CC-BY-SA-4.0"
+}
