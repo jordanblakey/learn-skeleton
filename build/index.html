@@ -22,27 +22,158 @@
 
 </head>
 <body>
+    <div class="container fixedContainer">
+        <div class="row">
+            <a href="#home" id="scrollTop">&#x25B2;</a>
+        </div>
+    </div>
+<!-- NAVIGATION -->
+    <a name="home" id="home"></a>
+    <div id="nav-container">
+        <div class="row">
+            <nav class="nav-collapse">
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#design">Design</a></li>
+                <li><a href="#develop">Develop</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+        </div>
+    </div>
 
 <!-- PRIMARY PAGE LAYOUT -->
     <div class="container">
         <div class="row">
-            <div class="column" style="margin-top: 25%">
-                <h4>Basic Page</h4>
-                <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+            <div class="column">
+                <a name="develop" id="develop"></a>
+                <h1>Jordan Blakey <br><span id="job-title">Full Stack Developer</span></h1>
+                <h4>Crafting with the tools framing tomorrow's internet.</h4>
             </div>
         </div>
-    </div>
 
-<!-- STACKSHARE EMBED -->
-    <div class="container">
+<!-- DEVELOPMENT & STACKSHARE EMBED -->
         <div class="row">
             <div class="column">
-                <a frameborder="0" data-theme="light" data-stack-embed="true" data-layers="1,2,3,4" href="https://embed.stackshare.io/stacks/embed/ca12dba1d57b93c32ed4ea414a7e81"></a>
+                <a frameborder="0" data-theme="light" data-stack-embed="true" data-layers="1,2,3,4" href="https://embed.stackshare.io/stacks/embed/b7221fcd0f5a032ea63f248b51f0b0"></a>
             </div>
         </div>
+
+<!-- DESIGN -->
+        <div class="row">
+            <div class="column">
+                <a name="design" id="design"></a>
+                <h1>Design</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <ul class="shots"></ul>
+            </div>
+        </div>
+
+<!-- FORM -->
+        <form action="">
+            <div class="row">
+                <div class="column">
+                    <a name="contact" id="contact"></a>
+                    <h1>Contact</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                    <label for="your-email">Your Email</label>
+                    <input class="u-full-width" type="email" placeholder="you@gmail.com" id="your-email">
+                </div>
+                <div class="six columns">
+                    <label for="">What is your quest?</label>
+                    <select class="u-full-width" type="text">
+                        <option value="Option 1">Recruitment</option>
+                        <option value="Option 2">Partnership Opportunity</option>
+                        <option value="Option 3">Freelance Inquiry</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="">Ask me anything.</label>
+                    <textarea class="u-full-width"></textarea>
+                    <input class="button-primary" type="submit" value="Fire">
+                </div>
+            </div>
+        </form>
+
     </div>
 
-<!-- SCRIPTS -->
+<!-- JS -->
+    <script src="js/responsive-nav.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jribbble.min.js"></script>
+
+<!-- SCRIPT: Stackshare Embed -->
     <script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
+
+<!-- SCRIPT: Dribble OAuth Scrape -->
+    <script>
+    $.jribbble.setToken('2e868d0f0e982918df051f4d51abb6f80bcf19886ff34329156806997f262231');
+
+    $.jribbble.users('jordanblakey').likes({per_page: 30}).then(function(likes) {
+        var html = [];
+
+        likes.forEach(function(like) {
+            html.push('<li class="shots--shot">');
+            html.push('<a href="' + like.shot.html_url + '" target="_blank">');
+            html.push('<img src="' + like.shot.images.normal + '">');
+            html.push('</a></li>');
+        });
+
+        $('.shots').html(html.join(''));
+    });
+
+    </script>
+
+<!-- SCRIPT: Responsive Nav -->
+    <script>
+      var navigation = responsiveNav(".nav-collapse", {
+        animate: true,                    // Boolean: Use CSS3 transitions, true or false
+        transition: 284,                  // Integer: Speed of the transition, in milliseconds
+        label: "Menu",                    // String: Label for the navigation toggle
+        insert: "after",                  // String: Insert the toggle before or after the navigation
+        customToggle: "",                 // Selector: Specify the ID of a custom toggle
+        closeOnNavClick: false,           // Boolean: Close the navigation when one of the links are clicked
+        openPos: "relative",              // String: Position of the opened nav, relative or static
+        navClass: "nav-collapse",         // String: Default CSS class. If changed, you need to edit the CSS too!
+        navActiveClass: "js-nav-active",  // String: Class that is added to <html> element when nav is active
+        jsClass: "js",                    // String: 'JS enabled' class which is added to <html> element
+        init: function(){},               // Function: Init callback
+        open: function(){},               // Function: Open callback
+        close: function(){}               // Function: Close callback
+      });
+    </script>
+
+<!-- SCRIPT: jQuery Smooth Scrolling -->
+    <script>
+        $(document).on('click', 'a[href^="#"]', function(e) {
+            // target element id
+            var id = $(this).attr('href');
+
+            // target element
+            var $id = $(id);
+            if ($id.length === 0) {
+                return;
+            }
+
+            // prevent standard hash navigation (avoid blinking in IE)
+            e.preventDefault();
+
+            // top position relative to the document
+            var pos = $(id).offset().top;
+
+            // animated top scrolling
+            $('body, html').animate({scrollTop: pos}, 300, 'easeInQuad');
+        });
+
+    </script>
 </body>
 </html>
