@@ -4,6 +4,7 @@
 
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     sass = require('gulp-sass'),
@@ -18,9 +19,10 @@ var gulp = require('gulp'),
 gulp.task('scripts', function(){
     gulp.src(['app/js/**/*.js', '!app/js/**/*.min.js'])
     .pipe(plumber())
-    .pipe(rename({suffix:'.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('app/js'))
+    .pipe(rename({suffix:'.min'}))
+    // .pipe(concat('app.min.js'))
+    .pipe(gulp.dest('app/js/'))
     .pipe(reload({stream:true}));
 });
 
@@ -86,6 +88,7 @@ gulp.task('build:copy', function(){
 gulp.task('build:remove', ['build:copy'], function(cb){
     del([
         'build/scss/',
+        // 'build/js/!(app.min.js)'
         'build/js/!(*.min.js)'
     ], cb);
 });
