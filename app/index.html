@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<!-- BASIC PAGE NEEDS -->
+    <!-- BASIC PAGE NEEDS -->
     <meta charset="utf-8">
     <title>Jordan Blakey | Full Stack Developer &amp; Designer</title>
     <meta name="description" content="The personal portfolio of Jordan Blakey, showcasing design and development projects. Available for contract and freelance work.">
     <meta name="author" content="Jordan Blakey">
 
-<!-- MOBILE SPECIFIC METAS -->
+    <!-- MOBILE SPECIFIC METAS -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- FONT -->
+    <!-- FONT -->
     <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
 
-<!-- CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-<!-- FAVICON -->
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
+
 <body>
     <div class="container fixedContainer">
         <div class="row">
             <a href="#home" id="scrollTop">&#x25B2;</a>
         </div>
     </div>
-<!-- NAVIGATION -->
+    <!-- NAVIGATION -->
     <a name="home" id="home"></a>
     <div id="nav-container">
         <div class="row">
             <nav class="nav-collapse">
-              <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#design">Design</a></li>
-                <li><a href="#develop">Develop</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#design">Design</a></li>
+                    <li><a href="#develop">Develop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </div>
 
-<!-- PRIMARY PAGE LAYOUT -->
+    <!-- PRIMARY PAGE LAYOUT -->
     <div class="container">
         <div class="row">
             <div class="column">
@@ -52,14 +54,14 @@
             </div>
         </div>
 
-<!-- DEVELOPMENT & STACKSHARE EMBED -->
+        <!-- DEVELOPMENT & STACKSHARE EMBED -->
         <div class="row">
             <div class="column">
                 <a frameborder="0" data-theme="light" data-stack-embed="true" data-layers="1,2,3,4" href="https://embed.stackshare.io/stacks/embed/b7221fcd0f5a032ea63f248b51f0b0"></a>
             </div>
         </div>
 
-<!-- DESIGN -->
+        <!-- DESIGN -->
         <div class="row">
             <div class="column">
                 <a name="design" id="design"></a>
@@ -72,7 +74,7 @@
             </div>
         </div>
 
-<!-- FORM -->
+        <!-- FORM -->
         <form action="">
             <div class="row">
                 <div class="column">
@@ -105,7 +107,7 @@
 
     </div>
 
-<!-- JS -->
+    <!-- JS -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/jribbble.min.js"></script>
@@ -113,13 +115,15 @@
     <!-- <script src="js/app.min.js"></script> -->
 
     <!-- SCRIPT: Stackshare Embed -->
-        <script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
+    <script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
 
     <!-- SCRIPT: Dribble OAuth Scrape -->
-        <script>
+    <script>
         $.jribbble.setToken('2e868d0f0e982918df051f4d51abb6f80bcf19886ff34329156806997f262231');
 
-        $.jribbble.users('jordanblakey').likes({per_page: 30}).then(function(likes) {
+        $.jribbble.users('jordanblakey').likes({
+            per_page: 30
+        }).then(function(likes) {
             var html = [];
 
             likes.forEach(function(like) {
@@ -131,51 +135,52 @@
 
             $('.shots').html(html.join(''));
         });
-
-        </script>
+    </script>
 
     <!-- SCRIPT: Responsive Nav -->
-        <script>
-          var navigation = responsiveNav(".nav-collapse", {
-            animate: true,                    // Boolean: Use CSS3 transitions, true or false
-            transition: 284,                  // Integer: Speed of the transition, in milliseconds
-            label: "Menu",                    // String: Label for the navigation toggle
-            insert: "after",                  // String: Insert the toggle before or after the navigation
-            customToggle: "",                 // Selector: Specify the ID of a custom toggle
-            closeOnNavClick: false,           // Boolean: Close the navigation when one of the links are clicked
-            openPos: "relative",              // String: Position of the opened nav, relative or static
-            navClass: "nav-collapse",         // String: Default CSS class. If changed, you need to edit the CSS too!
-            navActiveClass: "js-nav-active",  // String: Class that is added to <html> element when nav is active
-            jsClass: "js",                    // String: 'JS enabled' class which is added to <html> element
-            init: function(){},               // Function: Init callback
-            open: function(){},               // Function: Open callback
-            close: function(){}               // Function: Close callback
-          });
-        </script>
+    <script>
+        var navigation = responsiveNav(".nav-collapse", {
+            animate: true, // Boolean: Use CSS3 transitions, true or false
+            transition: 284, // Integer: Speed of the transition, in milliseconds
+            label: "Menu", // String: Label for the navigation toggle
+            insert: "after", // String: Insert the toggle before or after the navigation
+            customToggle: "", // Selector: Specify the ID of a custom toggle
+            closeOnNavClick: false, // Boolean: Close the navigation when one of the links are clicked
+            openPos: "relative", // String: Position of the opened nav, relative or static
+            navClass: "nav-collapse", // String: Default CSS class. If changed, you need to edit the CSS too!
+            navActiveClass: "js-nav-active", // String: Class that is added to <html> element when nav is active
+            jsClass: "js", // String: 'JS enabled' class which is added to <html> element
+            init: function() {}, // Function: Init callback
+            open: function() {}, // Function: Open callback
+            close: function() {} // Function: Close callback
+        });
+    </script>
 
     <!-- SCRIPT: jQuery Smooth Scrolling -->
-        <script>
-            $(document).on('click', 'a[href^="#"]', function(e) {
-                // target element id
-                var id = $(this).attr('href');
+    <script>
+        $(document).on('click', 'a[href^="#"]', function(e) {
+            // target element id
+            var id = $(this).attr('href');
 
-                // target element
-                var $id = $(id);
-                if ($id.length === 0) {
-                    return;
-                }
+            // target element
+            var $id = $(id);
+            if ($id.length === 0) {
+                return;
+            }
 
-                // prevent standard hash navigation (avoid blinking in IE)
-                e.preventDefault();
+            // prevent standard hash navigation (avoid blinking in IE)
+            e.preventDefault();
 
-                // top position relative to the document
-                var pos = $(id).offset().top;
+            // top position relative to the document
+            var pos = $(id).offset().top;
 
-                // animated top scrolling
-                $('body, html').animate({scrollTop: pos}, 300, 'easeInQuad');
-            });
-
-        </script>
+            // animated top scrolling
+            $('body, html').animate({
+                scrollTop: pos
+            }, 300, 'easeInQuad');
+        });
+    </script>
 
 </body>
+
 </html>
